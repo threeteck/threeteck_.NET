@@ -10,6 +10,9 @@ namespace threeteck_HW1
     {
         static void Main(string[] args)
         {
+            Calculator calculator = Calculator.GetStandartCalculator();
+            Console.WriteLine(calculator.MakeCalculation(Console.ReadLine()));
+            Console.ReadKey();
         }
     }
 }
