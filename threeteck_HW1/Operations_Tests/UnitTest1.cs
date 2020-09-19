@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using NUnit.Framework;
-using thre;
+using threeteck_Calculator;
 
-namespace OP_Tests
+namespace Operations_Tests
 {
     [TestFixture]
-    public class OperationsTest
+    public class OperationsTests
     {
         [TestCase(1, 1, 2d)]
         [TestCase(0, 0, 0d)]
