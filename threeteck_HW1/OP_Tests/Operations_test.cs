@@ -1,14 +1,11 @@
-﻿using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
+using NUnit.Framework;
+using threeteck_HW1;
 
-namespace threeteck_HW1.Tests
+namespace OP_Tests
 {
     [TestFixture]
-    public class Operations_test
+    public class OperationsTest
     {
         [TestCase(1, 1, 2d)]
         [TestCase(0, 0, 0d)]
