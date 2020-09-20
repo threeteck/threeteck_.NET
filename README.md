@@ -1,1 +1,0 @@
-[![codecov](https://codecov.io/gh/threeteck/threeteck_.NET/branch/hw2/graph/badge.svg)](https://codecov.io/gh/threeteck/threeteck_.NET)
