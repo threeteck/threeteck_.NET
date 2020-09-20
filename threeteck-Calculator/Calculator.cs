@@ -24,36 +24,38 @@ namespace threeteck_Calculator
 
         private double makeCalculation(string expression)
         {
-            string firstPart = GetNextExpression(expression);
-            char op = expression[firstPart.Length];
-            string secondPart = GetNextExpression(expression
+            var firstPart = GetNextExpression(expression);
+            if(expression.Length <= firstPart.Length+1) return double.NaN;
+            var op = expression[firstPart.Length];
+            var secondPart = GetNextExpression(expression
                 .Substring(firstPart.Length + 1));
 
-            double parsedFirstPart = 0;
-            double parsedSecondPart = 1;
-            if (!double.TryParse(firstPart, out parsedFirstPart)
-                || !double.TryParse(secondPart, out parsedSecondPart)
+            if (!double.TryParse(firstPart, out var parsedFirstPart)
+                || !double.TryParse(secondPart, out var parsedSecondPart)
                 || !operators.ContainsKey(op))
                 return double.NaN;
 
             return operators[op](parsedFirstPart, parsedSecondPart);
         }
 
-        private string GetNextExpression(string expression)
+        private static string GetNextExpression(string expression)
         {
-            StringBuilder nextExpression = new StringBuilder();
+            var nextExpression = new StringBuilder();
             int index = 0;
             while (index < expression.Length && (
                 char.IsDigit(expression[index]) || expression[index] == '.'
-                    || expression[index] == ','))
-                nextExpression.Append(expression[index++]);
+                                                || expression[index] == ','))
+            {
+                nextExpression.Append(expression[index] == '.' ? ',' : expression[index]);
+                index++;
+            }
 
             return nextExpression.ToString();
         }
 
         public static Calculator GetStandartCalculator()
         {
-            Calculator calculator = new Calculator();
+            var calculator = new Calculator();
             calculator.AddOperator('+', Operations.Add);
             calculator.AddOperator('*', Operations.Multiply);
             calculator.AddOperator('-', Operations.Subtract);

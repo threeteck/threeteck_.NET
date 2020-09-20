@@ -2,7 +2,7 @@ using System;
 using NUnit.Framework;
 using threeteck_Calculator;
 
-namespace Operations_Tests
+namespace Calculator_Tests
 {
     [TestFixture]
     public class OperationsTests
@@ -75,6 +75,7 @@ namespace Operations_Tests
         [TestCase(0, 0, double.NaN)]
         [TestCase(-3.14, 3, -1.04666d)]
         [TestCase(double.NaN, 1, double.NaN)]
+        [TestCase(1, 0, double.PositiveInfinity)]
         public void IsDivideOperationWorking(double a, double b, double expected)
         {
             Assert.AreEqual(expected, Operations.Divide(a, b), 1e-5);

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "threeteck-Calculator", "threeteck-Calculator\threeteck-Calculator.csproj", "{F71C1F98-C8F5-4682-AEBD-F513B308859C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operations_Tests", "Operations_Tests\Operations_Tests.csproj", "{1DDCD4B5-3314-4E67-9992-1CBC85953CE7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculator_Tests", "Calculator_Tests\Calculator_Tests.csproj", "{1DDCD4B5-3314-4E67-9992-1CBC85953CE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
