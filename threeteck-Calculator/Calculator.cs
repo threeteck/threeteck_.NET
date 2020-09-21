@@ -19,11 +19,6 @@ namespace threeteck_Calculator
         public double MakeCalculation(string expression)
         {
             expression = expression.Replace(" ", "");
-            return makeCalculation(expression);
-        }
-
-        private double makeCalculation(string expression)
-        {
             var firstPart = GetNextExpression(expression);
             if(expression.Length <= firstPart.Length+1) return double.NaN;
             var op = expression[firstPart.Length];
@@ -42,6 +37,12 @@ namespace threeteck_Calculator
         {
             var nextExpression = new StringBuilder();
             int index = 0;
+            if (expression[index] == '-')
+            {
+                nextExpression.Append('-');
+                index++;
+            }
+            
             while (index < expression.Length && (
                 char.IsDigit(expression[index]) || expression[index] == '.'
                                                 || expression[index] == ','))
