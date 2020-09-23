@@ -6,54 +6,28 @@ namespace threeteck_Calculator
 {
     public class Calculator
     {
-        private Dictionary<char, Func<double, double, double>> operators;
+        private Dictionary<char, Func<double, double, double>> _operators;
 
         public Calculator()
         {
-            operators = new Dictionary<char, Func<double, double, double>>();
+            _operators = new Dictionary<char, Func<double, double, double>>();
         }
 
         public void AddOperator(char symbol, Func<double, double, double> @operator)
-            => operators.Add(symbol, @operator);
+            => _operators.Add(symbol, @operator);
 
-        public double MakeCalculation(string expression)
+        public double MakeCalculation(double firstNumber, char operation, double secondNumber)
         {
-            expression = expression.Replace(" ", "");
-            var firstPart = GetNextExpression(expression);
-            if(expression.Length <= firstPart.Length+1) return double.NaN;
-            var op = expression[firstPart.Length];
-            var secondPart = GetNextExpression(expression
-                .Substring(firstPart.Length + 1));
+            if(!_operators.ContainsKey(operation))
+                throw new ArgumentException("Expression operator is not supported by this instance.");
 
-            if (!double.TryParse(firstPart, out var parsedFirstPart)
-                || !double.TryParse(secondPart, out var parsedSecondPart)
-                || !operators.ContainsKey(op))
-                return double.NaN;
-
-            return operators[op](parsedFirstPart, parsedSecondPart);
+            return _operators[operation](firstNumber, secondNumber);
         }
 
-        private static string GetNextExpression(string expression)
-        {
-            var nextExpression = new StringBuilder();
-            int index = 0;
-            if (expression[index] == '-')
-            {
-                nextExpression.Append('-');
-                index++;
-            }
-            
-            while (index < expression.Length && (
-                char.IsDigit(expression[index]) || expression[index] == '.'
-                                                || expression[index] == ','))
-            {
-                nextExpression.Append(expression[index] == '.' ? ',' : expression[index]);
-                index++;
-            }
-
-            return nextExpression.ToString();
-        }
-
+        public double MakeCalculation(Expression expression)
+            => MakeCalculation(expression.FirstNumber, expression.Operator, expression.SecondNumber);
+        public double MakeCalculation(string expression) => MakeCalculation(Expression.Parse(expression));
+        
         public static Calculator GetStandartCalculator()
         {
             var calculator = new Calculator();

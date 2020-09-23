@@ -7,7 +7,19 @@ namespace threeteck_Calculator
         static void Main(string[] args)
         {
             Calculator calculator = Calculator.GetStandartCalculator();
-            Console.WriteLine(calculator.MakeCalculation(Console.ReadLine()));
+            try
+            {
+                Console.WriteLine(calculator.MakeCalculation(Expression.Parse(Console.ReadLine())));
+            }
+            catch (DivideByZeroException e)
+            {
+                Console.WriteLine("Cannot divide by zero");
+            }
+            catch (FormatException e)
+            {
+                Console.WriteLine("Invalid expression format");
+            }
+
             Console.ReadKey();
         }
     }
