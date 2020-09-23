@@ -10,7 +10,7 @@ namespace Calculator_Tests
         private static Calculator Calculator = Calculator.GetStandartCalculator();
         
         [Test]
-        public void MakeCalculation_DoubleValuesInString_MakeValidCalculation()
+        public void MakeCalculation_DecimalInputValues_MakeValidCalculation()
         {
             Assert.AreEqual(3.5d, Calculator.MakeCalculation(2.5,'+',1), 1e-5);
             Assert.AreEqual(1, Calculator.MakeCalculation(2.5,'-',1.5), 1e-5);
@@ -19,7 +19,7 @@ namespace Calculator_Tests
         }
 
         [Test]
-        public void MakeCalculation_NegativeValuesInString_MakeValidCalculation()
+        public void MakeCalculation_NegativeInputValues_MakeValidCalculation()
         {
             Assert.AreEqual(-1, Calculator.MakeCalculation(-3,'+',2), 1e-5);
             Assert.AreEqual(-1, Calculator.MakeCalculation(2,'+',-3), 1e-5);

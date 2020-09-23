@@ -19,7 +19,7 @@ namespace threeteck_Calculator
         public double MakeCalculation(double firstNumber, char operation, double secondNumber)
         {
             if(!_operators.ContainsKey(operation))
-                throw new ArgumentException("Expression operator is not supported by this instance.");
+                throw new ArgumentException("Expression operator is not supported by this instance.", nameof(operation));
 
             return _operators[operation](firstNumber, secondNumber);
         }

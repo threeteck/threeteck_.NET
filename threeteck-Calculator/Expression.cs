@@ -19,10 +19,10 @@ namespace threeteck_Calculator
         public static Expression Parse(string stringExpression)
         {
             stringExpression = stringExpression.Replace(" ", "");
-            var firstPart = GetNextExpression(stringExpression);
+            var firstPart = GetNextNumber(stringExpression);
             if(stringExpression.Length <= firstPart.Length+1) throw new FormatException();
             var op = stringExpression[firstPart.Length];
-            var secondPart = GetNextExpression(stringExpression
+            var secondPart = GetNextNumber(stringExpression
                 .Substring(firstPart.Length + 1));
 
             if (!double.TryParse(firstPart, out var parsedFirstPart)
@@ -31,7 +31,7 @@ namespace threeteck_Calculator
 
             return new Expression(parsedFirstPart, op,parsedSecondPart);
 
-            string GetNextExpression(string expression)
+            string GetNextNumber(string expression)
             {
                 var nextExpression = new StringBuilder();
                 int index = 0;

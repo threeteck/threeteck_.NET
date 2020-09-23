@@ -24,7 +24,7 @@ namespace Calculator_Tests
         }
 
         [Test]
-        public void Parse_DoubleValuesInString_CreateValidInstance()
+        public void Parse_DecimalValuesInString_CreateValidInstance()
         {
             CheckEquality(new Expression(2.5,'+',1), Expression.Parse("2.5 + 1"));
             CheckEquality(new Expression(2.5,'-',1.5), Expression.Parse(" 2,5 - 1.5 "));

@@ -19,6 +19,15 @@ namespace threeteck_Calculator
             {
                 Console.WriteLine("Invalid expression format");
             }
+            catch (ArgumentException e)
+            {
+                if (e.ParamName == "operation")
+                    Console.WriteLine("This operation is not supported");
+            }
+            catch
+            {
+                Console.WriteLine("Unexpected error");
+            }
 
             Console.ReadKey();
         }
