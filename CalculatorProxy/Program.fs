@@ -2,11 +2,6 @@
 open System.IO
 open FSharp.Data
 
-let tryParseResultToOption (a:bool * _) =
-    match a with
-    | true, v -> Some v
-    | false, _ -> None
-
 type AsyncMaybeBuilder() =
     member this.Bind(x, f) =
         async {
