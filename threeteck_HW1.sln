@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "threeteck-Calculator", "thr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Operations_Tests", "Operations_Tests\Operations_Tests.csproj", "{1DDCD4B5-3314-4E67-9992-1CBC85953CE7}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CalculatorF", "CalculatorF\CalculatorF.fsproj", "{24DBBA1A-41C8-4837-B80B-A38E836E0943}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{1DDCD4B5-3314-4E67-9992-1CBC85953CE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DDCD4B5-3314-4E67-9992-1CBC85953CE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DDCD4B5-3314-4E67-9992-1CBC85953CE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24DBBA1A-41C8-4837-B80B-A38E836E0943}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24DBBA1A-41C8-4837-B80B-A38E836E0943}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24DBBA1A-41C8-4837-B80B-A38E836E0943}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24DBBA1A-41C8-4837-B80B-A38E836E0943}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
