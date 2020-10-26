@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace ExpressionCalculatorProxy
@@ -18,17 +19,46 @@ namespace ExpressionCalculatorProxy
         {
             var expressionTree = ExpressionExtensions.CreateMathExpression(expression);
             var visitor = new MathExpressionVisitor(ComputeBinary, ComputeConstant);
+            var depths = new Dictionary<int, int>();
             var result = await visitor.ComputeAsync(expressionTree, (tree, depth) =>
             {
+                var spacing = new StringBuilder();
+                for (int i = 0; i < depth - 1; i++)
+                {
+                    if (!depths.ContainsKey(i + 1) || depths[i + 1] < 2)
+                        spacing.Append('│');
+                    else spacing.Append(' ');
+                    spacing.Append("    ");
+                }
+
+                if (depth != 0)
+                {
+                    if (!depths.ContainsKey(depth))
+                    {
+                        spacing.Append('├');
+                        depths.Add(depth, 1);
+                    }
+                    else
+                    {
+                        spacing.Append('└');
+                        depths[depth] = 2;
+                    }
+
+                    spacing.Append("─── ");
+                    
+                }
+
                 if (tree.Metadata["expression"] is BinaryExpression binaryExpression)
                 {
+                    if (depths.ContainsKey(depth + 1))
+                        depths.Remove(depth + 1);
                     var message = tree.Metadata["message"];
                     if (!double.IsNaN(tree.ComputedValue))
                         message = $"Result: {tree.ComputedValue:0.##}";
                     Console.WriteLine(
-                        $"{new string('-', depth * 4)} {MapExpressionTypeToChar(binaryExpression.NodeType)} ({message})");
+                        $"{spacing}{MapExpressionTypeToChar(binaryExpression.NodeType)} ({message})");
                 }
-                else Console.WriteLine($"{new string('-', depth * 4)} {tree.ComputedValue:0.##}");
+                else Console.WriteLine($"{spacing}{tree.ComputedValue:0.##}");
             });
             return result;
         }
