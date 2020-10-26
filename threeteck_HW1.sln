@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CalculatorAPI", "Calculator
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CalculatorProxy", "CalculatorProxy\CalculatorProxy.fsproj", "{8D9BA5C6-F6AD-409B-B105-74CFC6B39831}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionCalculatorProxy", "ExpressionCalculatorProxy\ExpressionCalculatorProxy.csproj", "{2FD9191C-605D-44F1-9CD8-47801DDCF105}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{8D9BA5C6-F6AD-409B-B105-74CFC6B39831}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D9BA5C6-F6AD-409B-B105-74CFC6B39831}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D9BA5C6-F6AD-409B-B105-74CFC6B39831}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FD9191C-605D-44F1-9CD8-47801DDCF105}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FD9191C-605D-44F1-9CD8-47801DDCF105}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FD9191C-605D-44F1-9CD8-47801DDCF105}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FD9191C-605D-44F1-9CD8-47801DDCF105}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

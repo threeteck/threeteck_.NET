@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="ExpressionTreeCalculatorProxy.cs" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="obj\Release\netcoreapp3.1\ExpressionCalculatorProxy.csproj.CoreCompileInputs.cache" />
+      <Content Include="obj\Release\netcoreapp3.1\ExpressionCalculatorProxy.csproj.FileListAbsolute.txt" />
+      <Content Include="obj\Release\netcoreapp3.1\ExpressionCalculatorProxy.dll" />
+      <Content Include="obj\Release\netcoreapp3.1\ExpressionCalculatorProxy.exe" />
+      <Content Include="obj\Release\netcoreapp3.1\ExpressionCalculatorProxy.genruntimeconfig.cache" />
+      <Content Include="obj\Release\netcoreapp3.1\ExpressionCalculatorProxy.pdb" />
+    </ItemGroup>
+
+</Project>
