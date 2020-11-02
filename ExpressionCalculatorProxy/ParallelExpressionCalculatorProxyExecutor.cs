@@ -8,9 +8,9 @@ namespace ExpressionCalculatorProxy
 {
     public class ParallelExpressionCalculatorProxyExecutor
     {
-        private CalculatorProxy _calculatorProxy;
+        private ICalculatorProxy _calculatorProxy;
 
-        public ParallelExpressionCalculatorProxyExecutor(CalculatorProxy calculatorProxy)
+        public ParallelExpressionCalculatorProxyExecutor(ICalculatorProxy calculatorProxy)
         {
             _calculatorProxy = calculatorProxy;
         }

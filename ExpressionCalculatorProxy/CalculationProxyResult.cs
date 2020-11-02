@@ -11,18 +11,24 @@ namespace ExpressionCalculatorProxy
         public int StatusCode;
         public double Result;
 
-        public CalculationProxyResult(HttpResponseMessage response)
+        public CalculationProxyResult(HttpResponseMessage response) 
+            : this((int)response.StatusCode, response.Content.ReadAsStringAsync().Result,
+                response.IsSuccessStatusCode)
         {
-            StatusCode = (int)response.StatusCode;
-            _responseMessage = response.Content.ReadAsStringAsync().Result;
+        }
 
-            if (response.IsSuccessStatusCode && Double.TryParse(_responseMessage, out var result))
+        public CalculationProxyResult(int statusCode, string responseMessage, bool isSuccessful = true)
+        {
+            StatusCode = statusCode;
+            _responseMessage = responseMessage;
+
+            if (isSuccessful && Double.TryParse(_responseMessage, out var result))
             {
                 Result = result;
                 HasResult = true;
             }
         }
-
+        
         private string MapStatusCode(int statusCode) =>
             statusCode switch
             {

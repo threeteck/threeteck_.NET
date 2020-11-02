@@ -11,12 +11,10 @@ namespace CalculatorAPI
         private readonly RequestDelegate _next;
         private readonly Calculator _calculator;
 
-        public CalculatorMiddleware(RequestDelegate next, Calculator calculator = null)
+        public CalculatorMiddleware(RequestDelegate next, Calculator calculator)
         {
             _next = next;
-            if (calculator == null)
-                _calculator = Calculator.GetStandartCalculator();
-            else _calculator = calculator;
+            _calculator = calculator;
         }
 
         public async Task InvokeAsync(HttpContext context)

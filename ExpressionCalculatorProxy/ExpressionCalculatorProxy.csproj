@@ -7,6 +7,7 @@
 
     <ItemGroup>
       <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" Version="2.2.0" />
+      <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.0-rc.2.20475.5" />
     </ItemGroup>
 
     <ItemGroup>
@@ -20,6 +21,10 @@
       <Content Include="obj\Release\netcoreapp3.1\ExpressionCalculatorProxy.exe" />
       <Content Include="obj\Release\netcoreapp3.1\ExpressionCalculatorProxy.genruntimeconfig.cache" />
       <Content Include="obj\Release\netcoreapp3.1\ExpressionCalculatorProxy.pdb" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\threeteck-Calculator\threeteck-Calculator.csproj" />
     </ItemGroup>
 
 </Project>

@@ -47,20 +47,25 @@ let getCalculationResult requestUrl =
           }                    
     )
     
+let proxyService (requestUrl:string) proxy =
+    let result = proxy requestUrl
+    
+    match result with
+        | Some v -> sprintf "%s" v
+        | None -> "Unexpected error"
+    
 [<EntryPoint>]
 let main argv =
     let url = "http://localhost:5000"
-    let result =
+    let result proxy =
         match argv.Length with
         | 1 ->  let query = argv.[0].Replace("+", "%2B")
-                getCalculationResult (sprintf "%s?query=%s" url query)
+                proxyService (sprintf "%s?query=%s" url query) proxy
         | 3 ->  let a = argv.[0]
                 let op = argv.[1].Replace("+", "%2B")
                 let b = argv.[2]
-                getCalculationResult (sprintf "%s?firstNumber=%s&op=%s&secondNumber=%s" url a op b)
-        | _ -> Some (sprintf "This command does not accept %d arguments" argv.Length)
+                proxyService (sprintf "%s?firstNumber=%s&op=%s&secondNumber=%s" url a op b) proxy
+        | _ -> (sprintf "This command does not accept %d arguments" argv.Length)
         
-    match result with
-        | Some v -> printf "%s" v
-        | None -> printf "Unexpected error"
+    printf "%s" (result getCalculationResult)
     0

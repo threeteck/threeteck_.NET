@@ -13,6 +13,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "CalculatorProxy", "Calculat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionCalculatorProxy", "ExpressionCalculatorProxy\ExpressionCalculatorProxy.csproj", "{2FD9191C-605D-44F1-9CD8-47801DDCF105}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpressionCalculatorProxyTests", "ExpressionCalculatorProxyTests\ExpressionCalculatorProxyTests.csproj", "{2F512736-3340-4748-84AB-0DA4C0460D33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2FD9191C-605D-44F1-9CD8-47801DDCF105}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FD9191C-605D-44F1-9CD8-47801DDCF105}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2FD9191C-605D-44F1-9CD8-47801DDCF105}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F512736-3340-4748-84AB-0DA4C0460D33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F512736-3340-4748-84AB-0DA4C0460D33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F512736-3340-4748-84AB-0DA4C0460D33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F512736-3340-4748-84AB-0DA4C0460D33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

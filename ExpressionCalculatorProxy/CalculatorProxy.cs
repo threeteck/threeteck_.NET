@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http.Extensions;
 
 namespace ExpressionCalculatorProxy
 {
-    public class CalculatorProxy
+    public class CalculatorProxy : ICalculatorProxy
     {
         private HttpClient _httpClient;
         private string _url;
