@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace ExpressionCalculatorProxy
 {
-    public class MathExpressionVisitor : ExpressionVisitor
+    public class MathExpressionVisitor : DynamicExpressionVisitor
     {
         private Func<double, double, ComputationTree<double>, Task<double>> _computeBinary;
         private Func<double, ComputationTree<double>, Task<double>> _computeConstant;
@@ -21,14 +21,14 @@ namespace ExpressionCalculatorProxy
 
         public async Task<double> ComputeAsync(Expression expression, Action<ComputationTree<double>, int> visitor = null)
         {
-            Visit(expression);
+            VisitExpression(expression);
             var result = await _root.ComputationTask;
             if (visitor != null)
                 _root.Visit(visitor);
             return result;
         }
 
-        protected override Expression VisitBinary(BinaryExpression node)
+        protected override Expression Visit(BinaryExpression node)
         {
             var temp = new ComputationTree<double>(async (tree) =>
             {
@@ -42,9 +42,9 @@ namespace ExpressionCalculatorProxy
 
             temp.Metadata["expression"] = node;
             
-            Visit(node.Left);
+            VisitExpression(node.Left);
             temp.Left = _root;
-            Visit(node.Right);
+            VisitExpression(node.Right);
             temp.Right = _root;
 
             _root = temp;
@@ -52,7 +52,7 @@ namespace ExpressionCalculatorProxy
             return node;
         }
 
-        protected override Expression VisitConstant(ConstantExpression node)
+        protected override Expression Visit(ConstantExpression node)
         {
             var temp = new ComputationTree<double>( async (tree) 
                 => await _computeConstant((double)node.Value, tree));
